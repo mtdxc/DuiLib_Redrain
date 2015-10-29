@@ -3,6 +3,6 @@ DuiLib_vs2008.suo
 *.pdb
 *.idb
 *.ilk
-各个Demo/半透明异形窗体demo/Desktop.v11.suo
-DuiLib/DuiLib.vcproj.REDRAIN-PC.Redrain.user
 *.ncb
+*.user
+/各个Demo/Redrain仿酷狗播放器源码，无素材/Redrain仿酷狗播放器/xml/localStorage/*.localstorage
