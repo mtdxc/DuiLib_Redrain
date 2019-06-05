@@ -96,9 +96,7 @@ void ControlForm::InitWindow()
 
 	/* Post repeat task to update progress value 200 milliseconds once 
 	StdClosure repeat_task = [this]() {
-		auto timestamp = shared::tools::GenerateTimeStamp();
-		int64_t timestamp_num = 0;
-		nbase::StringToInt64(timestamp, &timestamp_num);
+		int64_t timestamp_num = time(NULL);
 		nbase::ThreadManager::PostTask(kThreadUI, nbase::Bind(&ControlForm::OnProgressValueChagned, this, timestamp_num % 100));
 	};
 	nbase::ThreadManager::PostRepeatedTask(kThreadGlobalMisc, ToWeakCallback(repeat_task), nbase::TimeDelta::FromMilliseconds(200));

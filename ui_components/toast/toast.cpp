@@ -89,12 +89,9 @@ void Toast::SetDuration(int duration)
 {
 	if (duration <= 0)
 		return;
-	/*
-	nbase::ThreadManager::PostDelayedTask(kThreadUI, ToWeakCallback([this]()
-	{
-		this->Close();
-	}), nbase::TimeDelta::FromMilliseconds(duration));
-	*/
+	TimerManager::GetInstance()->AddCancelableTimer(this->GetWeakFlag(), [this]{
+		Close();
+	}, duration, 1);
 }
 
 bool Toast::OnClicked(ui::EventArgs* msg)

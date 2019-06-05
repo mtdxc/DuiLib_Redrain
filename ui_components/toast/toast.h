@@ -8,7 +8,7 @@ namespace shared
  * @author Redrain
  * @date 2016/8/24
  */
-class Toast : public ui::WindowImplBase
+class Toast : public ui::WindowImplBase, public virtual ui::SupportWeakCallback
 {
 public:
 	/**
