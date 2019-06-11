@@ -17,7 +17,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	// 默认皮肤使用 resources\\themes\\default
 	// 默认语言使用 resources\\lang\\zh_CN
 	// 如需修改请指定 Startup 最后两个参数
-	std::wstring theme_dir = ui::PathUtil::GetCurrentModuleDir();
+  std::wstring theme_dir = ui::GlobalManager::GetAppDir();
 	ui::GlobalManager::Startup(theme_dir + L"resources\\", ui::CreateControlCallback(), false);
 
 	// 一个仿微信的布局示例

@@ -84,6 +84,19 @@ std::wstring GlobalManager::GetCurrentPath()
     return tszModule;
 }
 
+std::wstring GlobalManager::GetModuleDir(HMODULE module)
+{
+  std::wstring strModulePath;
+  strModulePath.resize(MAX_PATH);
+  ::GetModuleFileNameW(module, &strModulePath[0], (DWORD)strModulePath.length());
+  return strModulePath.substr(0, strModulePath.find_last_of(L"\\") + 1);
+}
+
+std::wstring GlobalManager::GetCurrentModuleDir()
+{
+  return GetModuleDir(::GetModuleHandle(NULL));
+}
+
 std::wstring GlobalManager::GetResourcePath()
 {
     return m_pStrResourcePath;

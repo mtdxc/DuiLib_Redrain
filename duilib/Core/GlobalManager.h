@@ -37,7 +37,10 @@ public:
 	 * @return 返回当前程序所在目录
 	 */
 	static std::wstring GetCurrentPath();
-
+  
+  static std::wstring GetModuleDir(HMODULE h);
+  static std::wstring GetAppDir(){ return GetModuleDir(NULL); }
+  static std::wstring GetCurrentModuleDir();
 	/**
 	 * @brief 获取当前资源所在目录
 	 * @return 返回当前资源所在目录

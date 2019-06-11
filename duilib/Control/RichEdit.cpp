@@ -355,7 +355,7 @@ BOOL CTxtWinHost::Init(RichEdit *re, const CREATESTRUCT *pcs)
 	edit_dll = L"msftedit.dll";
 #else
 	
-	edit_dll = PathUtil::GetCurrentModuleDir() + L"msftedit50.dll";
+	edit_dll = GlobalManager::GetCurrentModuleDir() + L"msftedit50.dll";
 	if (!(::GetFileAttributesW(edit_dll.c_str()) != INVALID_FILE_ATTRIBUTES))
 		edit_dll = L"msftedit.dll";
 #endif

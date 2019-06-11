@@ -14,7 +14,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
 	// 获取资源路径，初始化全局参数
-	std::wstring theme_dir = ui::PathUtil::GetCurrentModuleDir();
+  std::wstring theme_dir = ui::GlobalManager::GetAppDir();
 	ui::GlobalManager::Startup(theme_dir + L"resources\\", ui::CreateControlCallback(), false);
 
 	// 创建一个默认带有阴影的居中窗口

@@ -271,18 +271,6 @@ public:
 	}
 };
 
-class PathUtil
-{
-public:
-	static std::wstring GetCurrentModuleDir()
-	{
-		std::wstring strModulePath;
-		strModulePath.resize(MAX_PATH);
-		::GetModuleFileNameW(::GetModuleHandle(NULL), &strModulePath[0], (DWORD)strModulePath.length());
-		return strModulePath.substr(0, strModulePath.find_last_of(L"\\") + 1);
-	}
-};
-
 }// namespace ui
 
 #endif // UI_UTILS_UTILS_H_

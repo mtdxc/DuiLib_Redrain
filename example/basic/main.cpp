@@ -13,7 +13,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 	// 获取资源路径，初始化全局参数
-	std::wstring theme_dir = ui::PathUtil::GetCurrentModuleDir();
+  std::wstring theme_dir = ui::GlobalManager::GetAppDir();
 #ifdef _DEBUG
 	// Debug 模式下使用本地文件夹作为资源
 	// 默认皮肤使用 resources\\themes\\default
