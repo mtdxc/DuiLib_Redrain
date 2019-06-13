@@ -9,7 +9,7 @@ namespace ui
 class CComboWnd;
 class UILIB_API Combo : public Box
 {
-    friend class CComboWnd;
+	friend class CComboWnd;
 public:
 	Combo();
 	Combo(const Combo& r) = delete;
@@ -28,7 +28,7 @@ public:
 	 * @brief 获取当前选择项文本
 	 * @return 返回当前选择项文本
 	 */
-    std::wstring GetText() const;
+	std::wstring GetText() const;
 
 	/**
 	 * @brief 获取当前所属的 List 对象
@@ -40,27 +40,27 @@ public:
 	 * @brief 获取下拉框属性信息
 	 * @return 返回字符串形式的属性信息
 	 */
-    std::wstring GetDropBoxAttributeList();
+	std::wstring GetDropBoxAttributeList();
 
 	/**
 	 * @brief 设置下拉框的属性信息
 	 * @param[in] pstrList 转义后的 XML 格式属性列表
 	 * @return 无
 	 */
-    void SetDropBoxAttributeList(const std::wstring& pstrList);
+	void SetDropBoxAttributeList(const std::wstring& pstrList);
 
 	/**
 	 * @brief 获取下拉框容器大小
 	 * @return 返回容器大小
 	 */
-    CSize GetDropBoxSize() const;
+	CSize GetDropBoxSize() const;
 
 	/**
 	 * @brief 设置下拉框容器大小
 	 * @param[in] szDropBox 要设置的大小信息
 	 * @return 无
 	 */
-    void SetDropBoxSize(CSize szDropBox);
+	void SetDropBoxSize(CSize szDropBox);
 	
 	/**
 	 * @brief 设置 Combobox 是否向上弹出
@@ -100,7 +100,7 @@ public:
 	 * @return 返回所有子项数量
 	 */
 	virtual int GetCount() const { return m_pLayout->GetCount(); }
-    
+
 	/**
 	 * @brief 监听子项被选择事件
 	 * @param[in] callback 子项被选择后触发的回调函数
@@ -117,9 +117,9 @@ private:
 	bool OnSelectItem(EventArgs* args);
 
 protected:
-    CComboWnd *m_pWindow;
+	CComboWnd *m_pWindow;
 	std::unique_ptr<ListBox> m_pLayout;
-    int m_iCurSel;  
+	int m_iCurSel;
 	ControlStateType m_uButtonState;
 	CSize m_szDropBox;
 	std::wstring m_sDropBoxAttributes;

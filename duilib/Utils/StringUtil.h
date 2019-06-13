@@ -22,6 +22,11 @@ public:
 	static bool MBCSToUnicode(const std::string &input, std::wstring& output, int code_page = CP_ACP);
 	static bool UnicodeToMBCS(const wchar_t *input, std::string &output, int code_page = CP_ACP);
 	static bool UnicodeToMBCS(const std::wstring& input, std::string &output, int code_page = CP_ACP);
+	// utf8 helper function
+	static std::string ToUtf8(const std::wstring& src)
+	{ std::string ret; UnicodeToMBCS(src, ret, CP_UTF8); return ret; }
+	static std::wstring FromUtf8(const std::string& src)
+	{ std::wstring ret; MBCSToUnicode(src, ret, CP_UTF8); return ret; }
 
 	// trimming, removing extra spaces
 	static std::string TrimLeft(const char *input);
