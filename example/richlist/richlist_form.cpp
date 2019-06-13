@@ -54,10 +54,9 @@ bool RichlistForm::OnSelected(ui::EventArgs* args)
 	int current = args->wParam;
 	int old = args->lParam;
 
-
 	auto message = ui::StringHelper::Printf(L"您选择了索引为 %d 的子项，上一次选择子项索引为 %d", current, old);
-	ShowMsgBox(GetHWND(), MsgboxCallback(), message, false, L"提示", false);
-
+	// ShowMsgBox(GetHWND(), MsgboxCallback(), message, false, L"提示", false);
+	shared::Toast::ShowToast(message, 1000, GetHWND());
 	return true;
 }
 

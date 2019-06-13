@@ -20,7 +20,7 @@ void Item::InitSubControls(const std::wstring& img, const std::wstring& title)
 	btn_del_		= dynamic_cast<ui::Button*>(FindSubControl(L"btn_del"));
 
 	// 模拟进度条进度
-	int64_t timestamp_num = time(NULL);
+	int64_t timestamp_num = GetTickCount();
 	progress_->SetValue((double)(timestamp_num % 100));
 
 	// 设置图标和任务名称

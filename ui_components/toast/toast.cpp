@@ -91,7 +91,7 @@ void Toast::SetDuration(int duration)
 		return;
 	TimerManager::GetInstance()->AddCancelableTimer(this->GetWeakFlag(), [this]{
 		Close();
-	}, duration, 1);
+	}, duration, 0);
 }
 
 bool Toast::OnClicked(ui::EventArgs* msg)

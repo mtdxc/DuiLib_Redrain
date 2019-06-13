@@ -24,7 +24,7 @@ struct TIMERINFO
 	LONGLONG uPause;	//定时器间隔
 	int iRepeatTime;	//重复次数
 	LARGE_INTEGER dwTimeEnd;	//定时器结束时间（单位1ms）
-	std::weak_ptr<WeakFlag> weakFlag;	//重复次数	
+	std::weak_ptr<WeakFlag> weakFlag;	
 };
 
 class TimerManager

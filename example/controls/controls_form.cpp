@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "controls_form.h"
-
+#include <time.h>
 #include <fstream>
 
 const std::wstring ControlForm::kClassName = L"Controls";
@@ -93,14 +93,20 @@ void ControlForm::InitWindow()
 	};
 	// Using ToWeakCallback to protect closure when if [ControlForm] was destoryed
 	// nbase::ThreadManager::PostTask(kThreadGlobalMisc, ToWeakCallback(closure)); // or Post2GlobalMisc(ToWeakCallback(closure));
+	ui::TimerManager::GetInstance()->AddCancelableTimer(GetWeakFlag(), closure, 1, 0);
 
-	/* Post repeat task to update progress value 200 milliseconds once 
-	StdClosure repeat_task = [this]() {
-		int64_t timestamp_num = time(NULL);
-		nbase::ThreadManager::PostTask(kThreadUI, nbase::Bind(&ControlForm::OnProgressValueChagned, this, timestamp_num % 100));
-	};
-	nbase::ThreadManager::PostRepeatedTask(kThreadGlobalMisc, ToWeakCallback(repeat_task), nbase::TimeDelta::FromMilliseconds(200));
-	*/
+	/* Post repeat task to update progress value 200 milliseconds once */
+	ui::TimerManager::GetInstance()->AddCancelableTimer(GetWeakFlag(), [this]() {
+		// OnProgressValueChagned(time(NULL) / 100);
+		auto progress = dynamic_cast<ui::Progress*>(FindControl(L"progress"));
+		if (progress){
+			int val = progress->GetValue() + 2;
+			if (val > progress->GetMaxValue()){
+				val = 0;
+			}
+			progress->SetValue(val);
+		}
+	}, 200, -1);
 	/* Show settings menu */
 	ui::Button* settings = dynamic_cast<ui::Button*>(FindControl(L"settings"));
 	settings->AttachClick([this](ui::EventArgs* args) {
@@ -132,10 +138,4 @@ void ControlForm::OnLoadedResourceFile(const std::wstring& xml)
 	control_edit->SetText(xml);
 	control_edit->SetFocus();
 	control_edit->HomeUp();
-}
-
-void ControlForm::OnProgressValueChagned(float value)
-{
-	auto progress = dynamic_cast<ui::Progress*>(FindControl(L"progress"));
-	progress->SetValue(value);
 }
