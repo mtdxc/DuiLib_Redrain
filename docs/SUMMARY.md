@@ -2,8 +2,10 @@
 
 * [项目简介](README.md)
 * [快速上手](GETTING-STARTED.md)
+* [云信Duilib](./UIKit/nim_duilib.md) 
 * [全局样式](GLOBAL.md)
 * [容器](Containers/README.md)
+  * [布局指南](./UIKit/nim_duilib_layout.md)  
   * [Box（自由布局容器）](Containers/Box.md)
   * [VBox（垂直布局容器）](Containers/VBox.md)
   * [HBox（水平布局容器）](Containers/HBox.md)
@@ -36,5 +38,6 @@
   * [Window Base（窗口基类）](Utils/WindowImplBase.md)
   * [Muilt Language（多国语言）](Utils/MuiltLanguage.md)
   * [DPI Manager（DPI管理）](Utils/DPIManager.md)
+  * [云信Duilib DPI](./UIKit/nim_duilib_dpi.md) 
   * [Shadow（阴影）](Utils/Shadow.md)
 
